@@ -17,7 +17,7 @@ bibliography: references.bib
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-library(palmerpenguins)
+library(janitor)
 ```
 
 # Introduction
@@ -28,52 +28,177 @@ You can and should cross-reference sections and sub-sections. For instance, Sect
 
 # Data
 
-Our data is of penguins (Figure \@ref(fig:bills)).
-
-```{r bills, fig.cap="Bills of penguins", echo = FALSE}
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = FALSE) +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Read in the data
+library(tidyverse)
+table_8 <- readxl::read_excel("~/Australia-2020/inputs/data/GSS_Table8.xlsx", sheet = "Table 8.1_Mean Score")
+```
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Read in the data
+library(tidyverse)
+table_8_RSE <- readxl::read_excel("~/Australia-2020/inputs/data/GSS_Table8.xlsx", sheet = "Table 8.2_RSE, mean")
 ```
 
 Talk more about it.
 
 Also bills and their average (Figure \@ref(fig:billssssss)). (Notice how you can change the height and width so they don't take the whole page?)
 
-```{r billssssss, fig.cap="More bills of penguins", echo = FALSE, fig.width=8, fig.height=4}
-
-# This needs to be about the random data tha tI sasmpled?
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = FALSE) +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
-```
-
 Talk way more about it. 
 
 
-
-# Model
-
-\begin{equation}
-Pr(\theta | y) = \frac{Pr(y | \theta) Pr(\theta)}{Pr(y)}  (\#eq:bayes)
-\end{equation}
-
-Equation \@ref(eq:bayes) seems useful, eh?
-
-Here's a dumb example of how to use some references: In paper we run our analysis in `R` [@citeR]. We also use the `tidyverse` which was written by @thereferencecanbewhatever If we were interested in baseball data then @citeLahman could be useful. 
-
-We can use maths by including latex between dollar signs, for instance $\theta$.
-
-
 # Results
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Extract life satisfaction mean scores by age
+life_satis_age <- as.data.frame(table_8[8:13,])
+life_satis_age <- life_satis_age[2:6,] %>% clean_names() %>%
+  rename(age_group = australian_bureau_of_statistics, mean_score = x12)
+```
+
+```{r, Figure1, fig.cap="Mean Life Satisfaction Score of Australians in 2020 By Age Group", echo=FALSE, warning=FALSE, message=FALSE}
+# Draw bar plot showing life satisfaction mean score by age groups.
+life_satis_age %>%
+  ggplot(aes(x = age_group, y = mean_score, fill = age_group)) +
+  geom_bar(position="dodge", stat="identity") +
+  labs(title = "Life Satisfaction By Age",
+       x = "Age Group",
+       y = "Mean Life Satisfaction Score") +
+  theme_minimal()
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Extract life satisfaction mean scores by mental health condition
+life_satis_mental_health <- as.data.frame(table_8[18:19,])
+life_satis_mental_health <- life_satis_mental_health %>% clean_names() %>%
+  rename(menal_health_condition = australian_bureau_of_statistics, mean_score = x12)
+```
+
+```{r, Figure2, fig.cap="Mean Life Satisfaction Score of Australians in 2020 By Mental Health Condition", echo=FALSE, warning=FALSE, message=FALSE}
+# Draw bar plot showing life satisfaction mean score by mental health conditions.
+life_satis_mental_health %>%
+  ggplot(aes(x = menal_health_condition, y = mean_score, colour = menal_health_condition, fill = menal_health_condition)) +
+  geom_bar(position="dodge", stat="identity") +
+  scale_x_discrete(labels=c("No", "Yes")) +
+  labs(title = "Life Satisfaction By Mental Health Conditions",
+       x = "Mental Health Condition",
+       y = "Mean Life Satisfaction Score") +
+  theme_minimal()
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Extract life satisfaction mean scores by mental health condition
+life_satis_health <- as.data.frame(table_8[21:22,])
+life_satis_health <- life_satis_health %>% clean_names() %>%
+  rename(health_condition = australian_bureau_of_statistics, mean_score = x12)
+```
+
+```{r, Figure3, fig.cap="Mean Life Satisfaction Score of Australians in 2020 By Health Condition", echo=FALSE, warning=FALSE, message=FALSE}
+# Draw bar plot showing life satisfaction mean score by health conditions.
+life_satis_health %>%
+  ggplot(aes(x = health_condition, y = mean_score, fill = health_condition)) +
+  geom_bar(position="dodge", stat="identity") +
+  scale_x_discrete(labels=c("No", "Yes")) +
+  labs(title = "Life Satisfaction By Health Conditions",
+       x = "Health Condition",
+       y = "Mean Life Satisfaction Score") +
+  theme_minimal()
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Extract life satisfaction mean scores by disability
+life_satis_disability <- as.data.frame(table_8[24:25,])
+life_satis_disability <- life_satis_disability %>% clean_names() %>%
+  rename(disability_or_not = australian_bureau_of_statistics, mean_score = x12)
+```
+
+```{r, Figure4, fig.cap="Mean Life Satisfaction Score of Australians in 2020 By Disability Condition", echo=FALSE, warning=FALSE, message=FALSE}
+# Draw bar plot showing life satisfaction mean score by disability conditions.
+life_satis_disability %>%
+  ggplot(aes(x = disability_or_not, y = mean_score, fill = disability_or_not)) +
+  geom_bar(position="dodge", stat="identity") +
+  scale_x_discrete(labels=c("Yes", "No")) +
+  labs(title = "Life Satisfaction By Disability Conditions",
+       x = "Disability Condition",
+       y = "Mean Life Satisfaction Score") +
+  theme_minimal()
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Extract life satisfaction mean scores by immigration status
+life_satis_immigrate <- as.data.frame(table_8[15:16,])
+life_satis_immigrate <- life_satis_immigrate %>% clean_names() %>%
+  rename(recent_migrants_or_not = australian_bureau_of_statistics, mean_score = x12)
+```
+
+```{r, Figure5, fig.cap="Mean Life Satisfaction Score of Australians in 2020 By Immigration Status", echo=FALSE, warning=FALSE, message=FALSE}
+# Draw bar plot showing life satisfaction mean score by immigration status
+life_satis_immigrate %>%
+  ggplot(aes(x = recent_migrants_or_not, y = mean_score, fill = recent_migrants_or_not)) +
+  geom_bar(position="dodge", stat="identity") +
+  scale_x_discrete(labels=c("No", "Yes")) +
+  labs(title = "Life Satisfaction By Immigration Status",
+       x = "Recent Migrants",
+       y = "Mean Life Satisfaction Score") +
+  theme_minimal()
+```
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Extract RSE of life satisfaction mean scores by immigration status
+life_satis_immigrate_RSE <- as.data.frame(table_8_RSE[15:16,])
+life_satis_immigrate_RSE <- life_satis_immigrate_RSE %>% clean_names() %>%
+  rename(recent_migrants_or_not = australian_bureau_of_statistics, RSE_mean_score = x12)
+```
+
+```{r, Figure6, fig.cap="RSE of Mean Life Satisfaction Score of Australians in 2020 By Immigration Status", echo=FALSE, warning=FALSE, message=FALSE}
+# Draw bar plot showing life satisfaction mean score by immigration status
+life_satis_immigrate_RSE %>%
+  ggplot(aes(x = recent_migrants_or_not, y = RSE_mean_score, fill = recent_migrants_or_not)) +
+  geom_bar(position="dodge", stat="identity") +
+  scale_x_discrete(labels=c("No", "Yes")) +
+  labs(title = "RSE of Mean Life Satisfaction Score By Immigration Status",
+       x = "Recent Migrants",
+       y = "RSE of Mean Life Satisfaction Score") +
+  theme_minimal()
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Extract life satisfaction mean scores by sexual orientation
+life_satis_sex_orien <- as.data.frame(table_8[27:28,])
+life_satis_sex_orien <- life_satis_sex_orien %>% clean_names() %>%
+  rename(sexual_orientation = australian_bureau_of_statistics, mean_score = x12)
+```
+
+```{r, Figure7, fig.cap="Mean Life Satisfaction Score of Australians in 2020 By Sexual Orientation", echo=FALSE, warning=FALSE, message=FALSE}
+# Draw bar plot showing life satisfaction mean score by sexual orientation.
+life_satis_sex_orien %>%
+  ggplot(aes(x = sexual_orientation, y = mean_score, fill = sexual_orientation)) +
+  geom_bar(position="dodge", stat="identity") +
+  scale_x_discrete(labels=c("No", "Yes")) +
+  labs(title = "Life Satisfaction By Sexual Orientation",
+       x = "Heterosexual or Not",
+       y = "Mean Life Satisfaction Score") +
+  theme_minimal()
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Extract RSE of life satisfaction scores by sexual orientation
+life_satis_sex_orien_RSE <- as.data.frame(table_8_RSE[27:28,])
+life_satis_sex_orien_RSE <- life_satis_sex_orien_RSE %>% clean_names() %>%
+  rename(sexual_orientation = australian_bureau_of_statistics, RSE_of_mean = x12)
+```
+
+```{r, Figure8, fig.cap="RSE of Mean Life Satisfaction Score of Australians in 2020 By Sexual Orientation", echo=FALSE, warning=FALSE, message=FALSE}
+# Draw bar plot showing life RSE of satisfaction mean score by sexual orientation.
+life_satis_sex_orien_RSE %>%
+  ggplot(aes(x = sexual_orientation, y = RSE_of_mean, fill = sexual_orientation)) +
+  geom_bar(position="dodge", stat="identity") +
+  scale_x_discrete(labels=c("No", "Yes")) +
+  labs(title = "RSE of Mean Life Satisfaction Score By Sexual Orientation",
+       x = "Heterosexual or Not",
+       y = "RSE of Mean Life Satisfaction Score") +
+  theme_minimal()
+```
 
 # Discussion
 
