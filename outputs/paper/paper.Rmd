@@ -200,19 +200,21 @@ life_satis_sex_orien_RSE %>%
   theme_minimal()
 ```
 
+# Result
+The data of the overall life satisfaction rate analyzed different groups of people by sex, which contains 3 columns: Males, Females, Total persons respectively. Figure 1 shows the mean life satisfaction scores among different age groups: 15 – 24, 25 – 39, 40 – 54, 55 – 69, 70 years old and over respectively. It shows an obvious upward trend on the mean life satisfaction score with the age going higher (from a mean score of 6.9 of people aged from 15 – 34, to 7.9 of people aged 70 years or older. Figure two divided people into two groups by their migration status, which results in similar mean scores between Recent migrants and non-recent migrant. But non-recent migrants tend to have a higher mean score especially for females refer to the data. Figure 3 shows the mean scores of people with a mental health condition and people without a mental health condition (a score of 5.8 compared to 7.4). Same as mental health, people with a long-term physical health condition also tend to have a lower mean score of life satisfaction (Figure 4) Figure 5 shows that people with disability have a mean score of 6.7, compared to 7.4 of people without disability. Figure 6 shows the mean scores between homosexual and heterosexual people. We concluded that Heterosexual has a higher overall mean score than homosexual and bisexual. Within the male homosexual group, their life satisfaction score is as much as heterosexual. Figure 7 – 8 shows the relative standard error of mean, for the Figure 2 and Figure 6. Both shows that the RSE of two different groups differs to a large extent. A large RSE means that the scores widely spread around the population mean. For example, gay, lesbian or Bisexual has a much larger RSE than Heterosexual, so we can draw a conclusion that Heterosexual people have relatively concentrated life satisfaction scores. 
+
+Figure 9-10 showed the scores among several aggregated groups. By comparing the overall life satisfaction mean scores from different years (2014, 2019, 2020). We found that people’s overall scores decreased a bit in 2020 (From around 7.6 to 7.2). As of covid pandemic is introduced in australia in January 2020, people’s life satisfaction score fell by around 0.3 unit. 
+\newpage
+
+
 # Discussion
 
-## First discussion point
+As the mean life satisfaction score goes lower while the age group goes younger, we observed a negative effect of aging. This is mainly because life satisfaction of older people is mainly affected by their life style. While younger people have a lower/decreasing life satisfaction, government should emphasize more on social/work benefits to reduce the living cost of younger people, as the outer happiness takes the mainly role in their life satisfaction. It is clear that the mean life satisfaction score is higher in the heterosexual group. But according to the RSE difference between the homosexual group and heterosexual group. We found that Australia has an unstable distribution of life satisfaction among different sexuality groups. It reflects that Australia needs to improve the life quality of homosexual group and try to eliminate the discrimination on the homosexual/bisexual group. People with physical or mental conditions or disabilities have a much lower mean life satisfaction score than normal people, and this gap is increasing by time. Government should pay more attention on deploying more social benefits to people with mental health problems and disables. 
 
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
+•	Weakness
+Statistics weakness: …
 
-## Second discussion point
-
-## Third discussion point
-
-## Weaknesses and next steps
-
-Weaknesses and next steps should also be included.
+This survey converted people’s life satisfaction into a number (life satisfaction score). This is apparently not enough for asssessing the overall satisfaction level. The satisfaction contains factors such as healthy physical being, inner happiness and social life. 
 
 \newpage
 
