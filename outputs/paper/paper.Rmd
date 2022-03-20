@@ -241,7 +241,7 @@ Figure 1 in the data section showed the scores among several aggregated groups. 
 ## First Discussion Point
 
 As the mean life satisfaction score goes lower while the age group goes younger, we observed a positive effect of aging. This is mainly because life satisfaction of older people is mainly affected by their life style. While younger people have a lower/decreasing life satisfaction, government should emphasize more on social/work benefits to reduce the living cost of younger people, as the outer happiness takes the mainly role in their life satisfaction. It is clear that the mean life satisfaction score is higher in the heterosexual group. But according to the RSE difference between the homosexual group and heterosexual group, we found that Australia has an unstable distribution of life satisfaction among groups with different sexual orientations, which reflects that the government of Australia needs to improve the living  quality of homosexual group and try to eliminate the discrimination on the homosexual/bisexual group. 
-
+ 
 ## Second Discussion Point
 People with major physical or mental conditions or disabilities have a much lower mean life satisfaction score than people without these major conditions, and this gap is increasing by time. Government should pay more attention on deploying more social benefits to people with mental health problems and disabilities. With good use of life satisfaction survey, governments could gain more knowledge of how to improve the life quality of some specific demographic groups.
 
