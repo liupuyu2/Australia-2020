@@ -15,11 +15,13 @@ library(tidyverse)
 library(readxl)
 
 # Read in the raw data. 
-raw_data <- readxl::read_excel("inputs/data/GSS_Table8.xlsx", sheet = "Table 8.1_Mean Score")
+raw_data <- read_excel("project/inputs/data/GSS_Table8.xlsx", 
+                                 sheet = "Table 8.1_Mean Score")
 # Just keep some variables that may be of interest (change 
 # this depending on your interests)
 
-raw_data_2 <- readxl::read_excel("inputs/data/GSS_Table8.xlsx", sheet = "Table 8.2_RSE, mean")
+raw_data_2 <- read_excel("project/inputs/data/GSS_Table8.xlsx", 
+                                    sheet = "Table 8.2_RSE, mean")
 #### What's next? ####
 
 
